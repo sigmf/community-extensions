@@ -1,0 +1,85 @@
+{
+  "$id": "https://raw.githubusercontent.com/sigmf/community-extensions/refs/tags/2025-01-01/sigmf-wifi-schema.json",
+  "$comment": "version: 1.0.0; original author: Napolean; current maintainer: Pedro",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Wi-Fi extension for SigMF-meta file.",
+  "description": "The `wifi`namespace extension defines dynamic Wi-Fi burst parameters extending `annotations`.",
+  "type": "object",
+  "properties": {
+    "annotations": {
+      "description": "The following names are specified in the `wifi` namespace and should be used in the `annotations` object:",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["wifi:standard"],
+        "$comment": "In the .md version of this schema, all of the fields were 'required' ...",
+        "properties": {
+          "wifi:standard": {
+            "description": "Wireless standard of captured signal e.g. 802.11a/g.",
+            "type": "string"
+          },
+          "wifi:frame_type_phy": {
+            "description": "Physical layer specification e.g. non-high throughput or very-high throughput.",
+            "type": "string"
+          },
+          "wifi:channel": {
+            "description": "Wi-Fi channel of captured signal",
+            "type": "integer"
+          },
+          "wifi:start_time_s": {
+            "description": "Start time of RF burst (relative time to start time of main capture file).",
+            "type": "number"
+          },
+          "wifi:stop_time_s": {
+            "description": "Stop time of RF burst (relative time to start time of main capture file).",
+            "type": "number"
+          },
+          "wifi:frame_duration_s": {
+            "description": "Duration of RF burst (`stop_time_s` - `start_time_s`).",
+            "type": "number"
+          },
+          "wifi:MCS": {
+            "description": "Wi-Fi signal Modulation and Coding Scheme (MCS).",
+            "type": "integer"
+          },
+          "wifi:MAC_frame_type": {
+            "description": "Wi-Fi MAC frame type.",
+            "type": "string"
+          },
+          "wifi:MAC_ta": {
+            "description": "Wi-Fi transmitter MAC address.",
+            "type": "string"
+          },
+          "wifi:MAC_ra": {
+            "description": "Wi-Fi receiver MAC address.",
+            "type": "string"
+          },
+          "wifi:manufacturer_ta": {
+            "description": "Manufacturer of the Wi-Fi transmitter.",
+            "type": "string"
+          },
+          "wifi:MAC_frame": {
+            "description": "Wi-Fi MAC frame data without CRC.",
+            "type": "string"
+          },
+          "wifi:CRC": {
+            "description": "Wi-Fi MAC frame CRC.",
+            "type": "string"
+          },
+          "wifi:start_of_packet": {
+            "description": "Starting sample of captured Wi-Fi burst.",
+            "type": "number"
+          },
+          "wifi:stop_of_packet": {
+            "description": "Stopping sample of captured Wi-Fi burst.",
+            "type": "number"
+          },
+          "wifi:number_of_samples_in_packet": {
+            "description": "Number of downsampled IQ samples in Wi-Fi burst.",
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
